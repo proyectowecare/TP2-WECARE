@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PerfilActivity"
+    android:background="#FAF3DD">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+
+                android:gravity="center"
+                android:text=" Mi cuenta"
+                android:textColor="#FFC107"
+                android:textSize="35dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/ic_baseline_account_perfil_24" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="Nombre"
+                android:textStyle="bold"
+                android:textSize="25dp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email registrado:"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/textView20"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="correo@gmail.com"
+                    app:layout_constraintBottom_toTopOf="@+id/tituloEnfermedades"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+                <LinearLayout
+                    android:id="@+id/tituloEnfermedades"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintBottom_toTopOf="@+id/listaEnfermedades"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView20" >
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Enfermedades previas:"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                    />
+                    <Button
+                        android:id="@+id/btnAgregarEnfermedad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Agregar"
+                        tools:layout_editor_absoluteX="291dp"
+                        tools:layout_editor_absoluteY="32dp" />
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:id="@+id/tituloMedicacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="20dp"
+                    app:layout_constraintBottom_toTopOf="@+id/listaMedicacion"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/listaEnfermedades">
+                    <TextView
+                        android:id="@+id/textView10"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Medicación Actual:"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        />
+
+                    <Button
+                        android:id="@+id/btnAgregarMedicacion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Agregar"
+                        tools:layout_editor_absoluteX="291dp"
+                        tools:layout_editor_absoluteY="32dp" />
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/listaEnfermedades"
+                    android:layout_width="match_parent"
+                    android:layout_height="210dp"
+                    app:layout_constraintBottom_toTopOf="@+id/tituloMedicacion"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tituloEnfermedades"
+                    tools:listitem="@layout/card_view_design"
+                    tools:itemCount="5"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/listaMedicacion"
+                    android:layout_width="0dp"
+                    android:layout_height="210dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tituloMedicacion"
+                    tools:listitem="@layout/card_view_design"/>
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

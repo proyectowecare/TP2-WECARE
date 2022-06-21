@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="#FAF3DD"
+    tools:context=".StatsFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="24dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:foregroundGravity="left"
+                android:gravity="center|left"
+                android:text="MIS STATS\nACTUALES"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+            <Space
+                android:layout_width="24dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:foregroundGravity="right"
+                android:gravity="center|right"
+                android:text="10:15 a.m.\nDomingo 29/03/2022"
+                android:textSize="20dp" />
+
+            <Space
+                android:layout_width="24dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_fav240"
+                android:tint="#DA8989" />
+
+            <TextView
+                android:id="@+id/heartRate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:text="--"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:text="LATIDOS POR MINUTO"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:text="Saturación de oxígeno:"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/oxygen"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints" />
+
+
+
+
+            <TextView
+                android:id="@+id/oxygen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="--"
+                android:textAlignment="center"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textView18"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rectangle_1"
+    android:background="#FAF3DD"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="-67dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="90dp"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+
+            android:orientation="vertical"
+
+            >
+
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_fav" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="50dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="WE CARE"
+                android:textColor="#FFC107"
+                android:textSize="30dp"></TextView>
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingBottom="10dp">
+
+
+            <View
+                android:id="@+id/login_box"
+                android:layout_width="343dp"
+                android:layout_height="250dp"
+                android:layout_gravity="center"
+                android:background="@drawable/color"
+
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+
+                android:id="@+id/iniciar_ses"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+
+                android:gravity="center"
+                android:text="Iniciar sesión"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.262"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ti_correolog"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="281dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/login_box"
+                app:layout_constraintHorizontal_bias="0.491"
+                app:layout_constraintStart_toStartOf="@+id/login_box"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.300">
+
+                <AutoCompleteTextView
+                    android:id="@+id/tv_emaillog"
+                    android:layout_width="278dp"
+                    android:layout_height="51dp"
+                    android:hint="Correo"
+                    android:textSize="16dp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/ti_contralog"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="281dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/login_box"
+                app:layout_constraintHorizontal_bias="0.491"
+                app:layout_constraintStart_toStartOf="@+id/login_box"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.700"
+                app:passwordToggleEnabled="true">
+
+                <AutoCompleteTextView
+                    android:id="@+id/tv_passwordlog"
+                    android:layout_width="278dp"
+                    android:layout_height="51dp"
+                    android:hint="Contraseña"
+                    android:inputType="textPassword"
+                    android:textColor="@color/black"
+                    android:textSize="16dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/bt_login"
+                android:layout_width="167dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/loginbutton"
+                android:text="Iniciar"
+                android:textColor="#000"
+                android:textSize="20dp"
+                app:backgroundTint="#FFA69E" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="o"
+                android:textSize="15dp" />
+
+            <Button
+                android:id="@+id/bt_signup"
+                android:layout_width="169dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="#00000000"
+                android:text="Crear cuenta"
+                android:textColor="#000"
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

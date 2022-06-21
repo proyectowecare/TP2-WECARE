@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rectangle_1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffe0db"
+    tools:context=".ButtonBreathActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="90dp"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="270dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="Es tiempo de relajarse"
+                android:textColor="#515151"
+                android:textSize="20dp"
+                android:textStyle="bold"></TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="349dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+
+                android:text="Realiza el siguiente ejercicio para sentirte mejor"
+                android:textColor="#515151"
+                android:textSize="20dp"></TextView>
+
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="359dp"
+            android:layout_height="413dp"
+            android:layout_gravity="center"
+            android:background="#fce4ec">
+
+
+            <TextView
+                android:id="@+id/tv_timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="10"
+                android:textColor="#5E6472"
+                android:textSize="70dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.494"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="5dp"></TextView>
+
+            <ImageButton
+                android:id="@+id/bt_breath"
+                android:layout_width="261dp"
+                android:layout_height="283dp"
+
+                android:background="#00000000"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.612"
+                app:srcCompat="@drawable/on" />
+
+            <TextView
+                android:id="@+id/tv_indicacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Inhala"
+                android:textColor="@color/white"
+                android:textSize="30dp"
+                app:layout_constraintBottom_toBottomOf="@+id/bt_breath"
+                app:layout_constraintEnd_toEndOf="@+id/bt_breath"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="@+id/bt_breath"
+                app:layout_constraintTop_toTopOf="@+id/bt_breath"
+                app:layout_constraintVertical_bias="0.411"
+                tools:text="Inhala" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+
+            android:id="@+id/tv_resp_indiacion"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_marginTop="15dp"
+
+            android:gravity="center"
+            android:text="Profundamente por la nariz, durante 6 segundos"
+            android:textColor="#515151"
+            android:textSize="20dp"
+            tools:text="Profundamente por la nariz, durante 6 segundos" />
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

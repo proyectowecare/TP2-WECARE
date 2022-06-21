@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00BCD4"
+    tools:context=".HomeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FAF3DD">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="485dp"
+                android:background="#FFFFFF"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <Space
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:foregroundGravity="left"
+                        android:gravity="center|left"
+                        android:text="Buenos días\nVanessa"
+                        android:textSize="30dp"
+                        android:textStyle="bold" />
+
+                    <Space
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:foregroundGravity="right"
+                        android:gravity="center|right"
+                        android:text="10:15 a.m.\nDomingo 29/03/2022"
+                        android:textSize="20dp" />
+
+                    <Space
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="208dp"
+                    android:src="@drawable/ic_baseline_tag_faces_24" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:foregroundGravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="20dp">
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="20dp"
+                        android:text="¿Como te sentiste?"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+                    <SeekBar
+                        android:id="@+id/feelingM"
+                        android:layout_width="200dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+
+                        android:foregroundGravity="center"
+                        android:max="100"
+                        android:progress="50" />
+
+                    <TextView
+                        android:id="@+id/feeling_numberM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="5"
+                        android:textSize="20dp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/linearLayout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <Space
+                        android:id="@+id/space7"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toTopOf="@+id/textView16"
+                        app:layout_constraintEnd_toStartOf="@+id/textView16"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/textView16" />
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ME SIENTO "
+                        android:textSize="30dp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/textView17"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:layout_editor_absoluteY="24dp" />
+
+                    <ImageButton
+                        android:id="@+id/ib_addevent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#00000000"
+                        android:foregroundGravity="right"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/textView17"
+                        app:srcCompat="@drawable/ic_baseline_add_circle_25"
+                        tools:layout_editor_absoluteY="19dp" />
+
+                    <TextView
+                        android:id="@+id/textView17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="BIEN"
+                        android:textColor="#03A9F4"
+                        android:textSize="30dp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@+id/ib_addevent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/textView16"
+                        tools:layout_editor_absoluteY="24dp" />
+
+                    <Space
+                        android:id="@+id/space8"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toTopOf="@+id/textView17"
+                        app:layout_constraintEnd_toStartOf="@+id/ib_addevent"
+                        app:layout_constraintStart_toEndOf="@+id/textView17"
+                        app:layout_constraintTop_toTopOf="@+id/textView17" />
+
+                    <Space
+                        android:id="@+id/space9"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toTopOf="@+id/ib_addevent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/ib_addevent"
+                        app:layout_constraintTop_toTopOf="@+id/ib_addevent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="177dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="89dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="205.5dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal|center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/imageButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="#00000000"
+                            android:foregroundGravity="center"
+                            android:gravity="center_horizontal"
+                            android:scaleType="center"
+                            android:src="@drawable/ic_baseline_menu_book_24"
+                            android:tint="#ffc107 " />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="205.5dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/imageButton4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:background="#00000000"
+                            android:foregroundGravity="center"
+                            android:gravity="center"
+                            android:scaleType="center"
+                            android:src="@drawable/ic_baseline_favorite_24"
+                            android:tint="#ffc107 " />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="205.5dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/imageButton5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#00000000"
+                            android:gravity="center"
+                            android:scaleType="center"
+                            android:src="@drawable/ic_baseline_account_perfil_24"
+                            android:tint="#ffc107 " />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="205.5dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/imageButton6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="#00000000"
+                            android:gravity="center"
+                            android:src="@drawable/ic_baseline_music_note_24"
+                            android:tint="#ffc107 " />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>

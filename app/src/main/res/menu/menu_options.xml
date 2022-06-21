@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/poner_iddecuenta"
+        android:icon="@drawable/ic_baseline_account_circle_24"
+        android:title="Cuenta" />
+
+    <item
+        android:id="@+id/poner_iddecuentaesp"
+        android:title="Especialista" />
+    <item
+        android:id="@+id/poner_idsolic"
+        android:title="Solicitudes" />
+    <item
+        android:id="@+id/poner_idrelax"
+        android:title="Relajacion" />
+    <item
+        android:id="@+id/poner_idcerrarsesion"
+        android:title="Cerrar Sesión" />
+</menu>

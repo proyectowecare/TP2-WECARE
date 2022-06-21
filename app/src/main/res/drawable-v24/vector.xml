@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <clip-path
+        android:pathData="M0 0H11V10H0V0Z"
+        />
+
+    <path
+        android:pathData="M0 0V10H11V0"
+        android:fillColor="#F4C620"
+        />
+</selector>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="349dp"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="28dp"
+        android:text="¿Que te parece escuchar algo de musica? Elige tu preferida"
+        android:textColor="#5E6472"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView27"></TextView>
+
+    <TextView
+        android:id="@+id/textView30"
+        android:layout_width="349dp"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="center"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="31dp"
+        android:gravity="center"
+        android:text="Concéntrate en el sonido"
+        android:textColor="#515151"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_mar"
+        app:layout_constraintVertical_bias="0.155"></TextView>
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="83dp"
+        android:gravity="center"
+        android:text="Es tiempo de relajarse"
+        android:textColor="#515151"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView15"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView27"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/line_9" />
+
+    <ImageButton
+        android:id="@+id/btn_Naturaleza"
+        android:layout_width="175dp"
+        android:layout_height="185dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="19dp"
+        app:layout_constraintEnd_toStartOf="@+id/btn_piano"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView29"
+        app:srcCompat="@drawable/login_box" />
+
+    <ImageButton
+        android:id="@+id/btn_mar"
+        android:layout_width="175dp"
+        android:layout_height="185dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="19dp"
+        app:layout_constraintEnd_toStartOf="@+id/btn_lofi"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_Naturaleza"
+        app:srcCompat="@drawable/login_box" />
+
+    <ImageButton
+        android:id="@+id/btn_lofi"
+        android:layout_width="175dp"
+        android:layout_height="185dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_mar"
+        app:layout_constraintTop_toBottomOf="@+id/btn_piano"
+        app:srcCompat="@drawable/login_box" />
+
+    <ImageButton
+        android:id="@+id/btn_piano"
+        android:layout_width="175dp"
+        android:layout_height="185dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="22dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_Naturaleza"
+        app:layout_constraintTop_toBottomOf="@+id/textView29"
+        app:srcCompat="@drawable/login_box" />
+
+    <ImageView
+        android:id="@+id/imageView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/btn_Naturaleza"
+        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintStart_toStartOf="@+id/btn_Naturaleza"
+        app:layout_constraintTop_toTopOf="@+id/btn_Naturaleza"
+        app:srcCompat="@drawable/musicicon" />
+
+    <ImageView
+        android:id="@+id/imageView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/btn_mar"
+        app:layout_constraintHorizontal_bias="0.032"
+        app:layout_constraintStart_toStartOf="@+id/btn_mar"
+        app:layout_constraintTop_toTopOf="@+id/btn_mar"
+        app:srcCompat="@drawable/musicicon" />
+
+    <TextView
+        android:id="@+id/textView31"
+        android:layout_width="103dp"
+        android:layout_height="33dp"
+        android:layout_gravity="right"
+        android:layout_marginTop="140dp"
+        android:gravity="right"
+        android:text="Naturaleza"
+        android:textColor="#FFA69E"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/btn_Naturaleza"
+        app:layout_constraintHorizontal_bias="0.875"
+        app:layout_constraintStart_toStartOf="@+id/btn_Naturaleza"
+        app:layout_constraintTop_toTopOf="@+id/btn_Naturaleza"></TextView>
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="39dp"
+        android:layout_height="30dp"
+        android:layout_gravity="right"
+        android:layout_marginTop="140dp"
+        android:gravity="right"
+        android:text="Mar"
+        android:textColor="#FFA69E"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/btn_mar"
+        app:layout_constraintHorizontal_bias="0.86"
+        app:layout_constraintStart_toStartOf="@+id/btn_mar"
+        app:layout_constraintTop_toTopOf="@+id/btn_mar"></TextView>
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="41dp"
+        android:layout_height="27dp"
+        android:layout_gravity="right"
+        android:layout_marginTop="140dp"
+        android:gravity="right"
+        android:text="Lofi"
+        android:textColor="#FFA69E"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/btn_lofi"
+        app:layout_constraintHorizontal_bias="0.86"
+        app:layout_constraintStart_toStartOf="@+id/btn_lofi"
+        app:layout_constraintTop_toTopOf="@+id/btn_lofi"></TextView>
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="58dp"
+        android:layout_height="31dp"
+        android:layout_gravity="right"
+        android:layout_marginTop="140dp"
+        android:gravity="right"
+        android:text="Piano"
+        android:textColor="#FFA69E"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/btn_piano"
+        app:layout_constraintHorizontal_bias="0.86"
+        app:layout_constraintStart_toStartOf="@+id/btn_piano"
+        app:layout_constraintTop_toTopOf="@+id/btn_piano"></TextView>
+
+    <ImageView
+        android:id="@+id/imageView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/btn_lofi"
+        app:layout_constraintHorizontal_bias="0.064"
+        app:layout_constraintStart_toStartOf="@+id/btn_lofi"
+        app:layout_constraintTop_toTopOf="@+id/btn_lofi"
+        app:srcCompat="@drawable/musicicon" />
+
+    <ImageView
+        android:id="@+id/imageView23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="@+id/btn_piano"
+        app:layout_constraintHorizontal_bias="0.064"
+        app:layout_constraintStart_toStartOf="@+id/btn_piano"
+        app:layout_constraintTop_toTopOf="@+id/btn_piano"
+        app:srcCompat="@drawable/musicicon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

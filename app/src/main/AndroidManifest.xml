@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.wecareapp">
+
+    <application
+        android:allowBackup="true"
+        android:configChanges="orientation"
+        android:icon="@mipmap/ic_launcher"
+        android:label="We care"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:screenOrientation="portrait"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Toolbar1"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".LaunchActivity">
+
+        </activity>
+        <activity android:name=".LogAsActivity" />
+        <activity android:name=".ButtonBreathActivity"
+            android:theme="@style/Theme.Toolbar"
+            android:parentActivityName=".RelaxSelectorActivity"
+            android:exported="false"/>
+        <activity android:name=".RelaxSelectorActivity"
+            android:theme="@style/Theme.Toolbar"
+            android:parentActivityName=".SelectorActivity"
+            android:exported="false"/>
+        <activity android:name=".MediaPlayerActivity" />
+        <activity android:name=".RegisterEventActivity">
+
+        </activity>
+        <activity android:name=".MiEspActivity" />
+        <activity android:name=".PendingProfile"
+            android:parentActivityName=".PendingPatients"
+            android:theme="@style/Theme.Toolbar"/>
+        <activity android:name=".PendingProfile2"
+            android:parentActivityName=".PendingPatients"
+            android:theme="@style/Theme.Toolbar"/>
+        <activity android:name=".PendingProfile3"
+            android:parentActivityName=".PendingPatients"
+            android:theme="@style/Theme.Toolbar"/>
+        <activity android:name=".PerfilActivity" />
+        <activity android:name=".SpetialistProfileActivity"
+            android:parentActivityName=".SpetialistSelectorActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Toolbar"/>
+        <activity android:name=".PendingPatients"
+            android:parentActivityName=".SpetialistSelectorActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Toolbar"/>
+        <activity
+            android:name=".SpetialistSelectorActivity"
+
+            android:theme="@style/Theme.Toolbar"/>
+        <activity
+            android:name=".MusicTypeSelector"
+            android:theme="@style/Theme.Toolbar"
+            android:parentActivityName=".RelaxSelectorActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".SelectorActivity"
+            android:theme="@style/Theme.Toolbar" />
+        <activity android:name=".RegisterActivity2" />
+        <activity android:name=".LofiMediaPlayerActivity"
+                  android:theme="@style/Theme.Toolbar"
+                  android:parentActivityName=".MusicTypeSelector"
+                  android:exported="false" />
+        <activity android:name=".NatureMediaPlayerActivity"
+                  android:theme="@style/Theme.Toolbar"
+                  android:parentActivityName=".MusicTypeSelector"
+                  android:exported="false" />
+        <activity android:name=".SeaMediaPlayerActivity"
+                  android:theme="@style/Theme.Toolbar"
+                  android:parentActivityName=".MusicTypeSelector"
+                  android:exported="false" />
+        <activity android:name=".PianoMediaPLayerActivity"
+                  android:theme="@style/Theme.Toolbar"
+                  android:parentActivityName=".MusicTypeSelector"
+                  android:exported="false" />
+        <activity android:name=".RegisterActivity1" />
+        <activity android:name=".SelectRolActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+</manifest>
