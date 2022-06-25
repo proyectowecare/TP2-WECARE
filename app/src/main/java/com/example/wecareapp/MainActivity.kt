@@ -17,12 +17,13 @@ import com.example.wecareapp.model.*
 import com.example.wecareapp.viewmodel.CreateLogUserVM
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseAuthException
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 class MainActivity : AppCompatActivity() {
     lateinit var viewModel: CreateLogUserVM
     lateinit var vm: GetEventsVM
+    private val db = FirebaseFirestore.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -84,6 +85,17 @@ class MainActivity : AppCompatActivity() {
                 .signInWithEmailAndPassword(Email.text.toString().replace(" ",""),Password.text.toString().replace(" ",""))
                 .addOnCompleteListener{
                     if (it.isSuccessful){
+                        // TODO: INICIANDO SESION
+                        /*db.collection("patients").document().get().addOnCompleteListener{
+                            if (it.isSuccessful){
+
+                            }
+                            else{
+
+                            }
+                        }
+                        db.collection("specialists")*/
+
                         val intent = Intent(this, LogAsActivity::class.java).apply {
                             //putExtra("Username",user.name)
                         }

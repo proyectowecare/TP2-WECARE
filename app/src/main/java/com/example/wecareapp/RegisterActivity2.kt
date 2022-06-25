@@ -14,9 +14,11 @@ import com.example.wecareapp.model.Specialist
 import com.example.wecareapp.model.SpecialistResponse
 import com.example.wecareapp.viewmodel.CreateSpecialistVM
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class RegisterActivity2 : AppCompatActivity() {
     lateinit var viewModel: CreateSpecialistVM
+    private val db = FirebaseFirestore.getInstance();
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register2)
@@ -68,7 +70,13 @@ class RegisterActivity2 : AppCompatActivity() {
         val ConfirmPassword: EditText=findViewById<EditText>(R.id.tv_confirm_password)
         val Esp: EditText=findViewById<EditText>(R.id.tv_especialidad)
         val Nrocol: EditText=findViewById<EditText>(R.id.tv_nro_colegiatura)
-        val  specialist = Specialist(Firstname.text.toString(), Lastname.text.toString(), Email.text.toString(), Esp.text.toString(),Nrocol.text.toString(),Password.text.toString(),ConfirmPassword.text.toString())
+        val  specialist = Specialist(Firstname.text.toString().replace("       ",""),
+            Lastname.text.toString().replace("       ",""),
+            Email.text.toString().replace("       ",""),
+            Esp.text.toString().replace("       ",""),
+            Nrocol.text.toString().replace("       ",""),
+            Password.text.toString().replace("       ",""),
+            ConfirmPassword.text.toString().replace("       ",""))
 
         //viewModel.createNewSpecialist(specialist)
 
@@ -76,7 +84,23 @@ class RegisterActivity2 : AppCompatActivity() {
         FirebaseAuth.getInstance()
             .createUserWithEmailAndPassword(specialist.Email,specialist.Password)
             .addOnCompleteListener{
+
+                val mAuth = FirebaseAuth.getInstance()
                 if (it.isSuccessful){
+
+                    val uid = mAuth.currentUser?.uid
+                    //TODO: ESTA VEZ, EL MAIL SERÁ LA CLAVE PARA LA BASE DE DATOS(NOSQL)
+                    db.collection("specialists").document(uid.toString()).set(
+                        hashMapOf(
+                            "specialistId" to uid,
+                            "specialistName" to specialist.Firstname,
+                            "specialistLastname" to specialist.Lastname,
+                            "specialistEmail" to specialist.Email,
+                            "specialistArea" to specialist.Area,
+                            "specialistTuitionNumber" to specialist.TuitionNumber,
+                            "specialistRol" to "specialist",
+                        )
+                    )
                     Toast.makeText(this, "Registro de usuario especialista completado", Toast.LENGTH_LONG).show()
                     val intent = Intent(this, MainActivity::class.java).apply {
                         //putExtra("Username",user.name)

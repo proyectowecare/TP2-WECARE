@@ -18,6 +18,7 @@ import com.example.wecareapp.model.Patient
 import com.example.wecareapp.model.PatientResponse
 import com.example.wecareapp.viewmodel.CreatePatientVM
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 //import com.example.wecareapp.viewmodel.MainViewModelFactory
@@ -26,6 +27,7 @@ import retrofit2.Response
 
 class RegisterActivity1 : AppCompatActivity() {
     lateinit var viewModel: CreatePatientVM
+    private val db = FirebaseFirestore.getInstance();
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register1)
@@ -73,14 +75,32 @@ class RegisterActivity1 : AppCompatActivity() {
         val ConfirPassowrd: EditText = findViewById<EditText>(R.id.tv_contraseña_confirmar)
 
 
-        val patient  = Patient(FirstName.text.toString(), Lastname.text.toString(), Email.text.toString(), Password.text.toString(), ConfirPassowrd.text.toString())
+        val patient  = Patient(FirstName.text.toString().replace("       ",""),
+            Lastname.text.toString().replace("       ",""),
+            Email.text.toString().replace("       ",""),
+            Password.text.toString().replace("       ",""),
+            ConfirPassowrd.text.toString().replace("       ",""))
         // TODO: ANTES
         //viewModel.createNewPatient(patient)
         //TODO: AHORA -> registro con usuario paciente
         FirebaseAuth.getInstance()
             .createUserWithEmailAndPassword(Email.text.toString(),Password.text.toString())
             .addOnCompleteListener{
+                val mAuth = FirebaseAuth.getInstance()
+
                 if (it.isSuccessful){
+                    val uid = mAuth.currentUser?.uid
+                    //TODO: ESTA VEZ, EL MAIL SERÁ LA CLAVE PARA LA BASE DE DATOS(NOSQL)
+                    db.collection("patients").document().set(
+                        hashMapOf(
+                            "patientId" to uid,
+                            "patientName" to patient.Firstname,
+                            "patientLastname" to patient.Lastname,
+                            "patientEmail" to patient.Email,
+                            "patientRol" to "patient",
+                            "patientLinked" to true
+                        )
+                    )
                     Toast.makeText(this, "Registro de usuario paciente completado", Toast.LENGTH_LONG).show()
                     val intent = Intent(this, MainActivity::class.java).apply {
                         //putExtra("Username",user.name)
