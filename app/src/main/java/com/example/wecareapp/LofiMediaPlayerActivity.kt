@@ -25,7 +25,7 @@ class LofiMediaPlayerActivity : AppCompatActivity() {
     var totalCanciones = 0;
     var canciones: IntArray = intArrayOf(R.raw.lofi,R.raw.lofi2,R.raw.lofi3,R.raw.lofi4)
     var posicion=0
-    var imageBtn= findViewById<ImageView>(R.id.musicImg)
+    //var imageBtn= findViewById<ImageView>(R.id.musicImg)
     private val database = db.collectionGroup("canciones").whereEqualTo("tipo",tipoMusica)
         .whereEqualTo("orden",posicion).get();
     override fun onCreate(savedInstanceState: Bundle?) {

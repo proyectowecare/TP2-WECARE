@@ -24,7 +24,7 @@ class PianoMediaPLayerActivity : AppCompatActivity() {
     var totalCanciones = 0;
     var canciones: IntArray = intArrayOf(R.raw.piano,R.raw.piano2,R.raw.piano3,R.raw.piano4)
     var posicion=0
-    var imageBtn= findViewById<ImageView>(R.id.musicImg)
+    //var imageBtn= findViewById<ImageView>(R.id.musicImg)
     private val database = db.collectionGroup("canciones").whereEqualTo("tipo",tipoMusica)
         .whereEqualTo("orden",posicion).get();
     override fun onCreate(savedInstanceState: Bundle?) {
