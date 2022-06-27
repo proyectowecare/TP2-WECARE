@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.TextView
 import android.widget.Toast
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -12,6 +13,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.wecareapp.databinding.ActivitySpetialistSelectorBinding
 
 class SpetialistSelectorActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -36,7 +38,19 @@ class SpetialistSelectorActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_spetialist_options,menu)
-
+        val textView: TextView = findViewById<TextView>(R.id.textView19)
+        // PONER EL NOMBRE DEL USUARIO EN EL TÍTULO
+        val bundle = intent.extras
+        if (bundle != null){
+            val nomPat = bundle?.getString("nameSpecialist")
+            val welcomeText= "Buenos días\n${nomPat}"
+            textView.text =welcomeText
+        }
+        println("      ")
+        println("      ")
+        println(textView.text)
+        println("      ")
+        println("      ")
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -57,7 +71,10 @@ class SpetialistSelectorActivity : AppCompatActivity() {
             startActivity(intent)
             return true
         }
-
         return super.onOptionsItemSelected(item)
+
     }
+
+
+
 }

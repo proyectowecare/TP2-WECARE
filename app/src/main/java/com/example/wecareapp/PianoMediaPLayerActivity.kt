@@ -22,9 +22,6 @@ class PianoMediaPLayerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_media_player)
 
         mp = MediaPlayer.create(this, canciones[0])
-
-
-
         mp.isLooping = true
         mp.setVolume(0.5f, 0.5f)
         totalTime = mp.duration

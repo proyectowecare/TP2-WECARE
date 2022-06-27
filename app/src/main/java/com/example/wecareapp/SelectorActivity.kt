@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.AutoCompleteTextView
 import android.widget.ImageButton
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.navigation.fragment.NavHostFragment
@@ -41,7 +43,11 @@ class SelectorActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_options,menu)
-
+        // PONER EL NOMBRE DEL USUARIO EN EL TÍTULO
+        val bundle = intent.extras
+        val nomPat = bundle?.getString("namePatient")
+        val textView: TextView = findViewById<TextView>(R.id.textView6)
+        textView.text = "Buenos días\n${nomPat}"
         return super.onCreateOptionsMenu(menu)
     }
 

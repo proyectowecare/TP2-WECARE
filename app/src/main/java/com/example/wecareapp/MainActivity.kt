@@ -47,10 +47,7 @@ class MainActivity : AppCompatActivity() {
             }*/
            createLogUser()
         }
-        /*login2.setOnClickListener(){
-            /*val intent=Intent(this,LogAsActivity::class.java)
-            startActivity(intent)*/
-        }*/
+
         registro.setOnClickListener(){
             // TODO: 1-> REALIZAR REGISTRO DE USUARIO CON FIREBASE
             val intent = Intent(this, SelectRolActivity::class.java).apply {
@@ -84,22 +81,39 @@ class MainActivity : AppCompatActivity() {
             FirebaseAuth.getInstance()
                 .signInWithEmailAndPassword(Email.text.toString().replace(" ",""),Password.text.toString().replace(" ",""))
                 .addOnCompleteListener{
+                    val mAuth = FirebaseAuth.getInstance()
+                    val uid = mAuth.currentUser?.uid
                     if (it.isSuccessful){
+                        println(uid)
                         // TODO: INICIANDO SESION
-                        /*db.collection("patients").document().get().addOnCompleteListener{
-                            if (it.isSuccessful){
-
+                        db.collection("patients")
+                            .document(uid.toString()) // CONSEGUIR EL USUARIO POR UID EN TABLA PATIENTS; SI NO ESTÁ EN ESTA TABLA, ESTARÁ EN LA TABLA SPECIALISTS
+                            .get()
+                            .addOnCompleteListener{
+                                if (it.isSuccessful){
+                                    if (it.getResult().get("patientRol") as String? == "patient"){
+                                        val intent= Intent(this, SelectorActivity::class.java).apply {
+                                            putExtra("namePatient",it.getResult().get("patientName") as String?)
+                                        }
+                                        startActivity(intent)
+                                    }else{ }
+                                }
                             }
-                            else{
-
+                        db.collection("specialists")
+                            .document(uid.toString())
+                            .get()
+                            .addOnCompleteListener{
+                                if (it.isSuccessful){
+                                    if (it.getResult().get("specialistRol") as String? == "specialist"){
+                                        val intent= Intent(this, SpetialistSelectorActivity::class.java).apply {
+                                            putExtra("nameSpecialist",it.getResult().get("specialistName") as String?)
+                                        }
+                                        startActivity(intent)
+                                    }else{ }
+                                }
                             }
-                        }
-                        db.collection("specialists")*/
 
-                        val intent = Intent(this, LogAsActivity::class.java).apply {
-                            //putExtra("Username",user.name)
-                        }
-                        startActivity(intent)
+
                     }
                 }
                 .addOnFailureListener{
