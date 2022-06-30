@@ -1,9 +1,11 @@
 package com.example.wecareapp.api
 
 import android.util.Log
+import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QuerySnapshot
 
 class FirebaseService {
     val db = FirebaseFirestore.getInstance();
@@ -79,5 +81,30 @@ class FirebaseService {
             Log.d("Mensaje","Se ha logrado crear el evento") }
             .addOnFailureListener {
                 Log.e("Error","No se ha podido crear el evento") };
+    }
+
+    private fun obtenerHistorias(): Task<QuerySnapshot> {
+        val histories = db.collection("histories").whereEqualTo("parentId",usuario?.uid).get();
+        return histories;
+    }
+
+    private fun obtenerEstadosPaciente(): Task<QuerySnapshot> {
+        val states = db.collection("states").whereEqualTo("parentId",usuario?.uid).get();
+        return states;
+    }
+
+    private fun obtenerEventos(): Task<QuerySnapshot> {
+        val events = db.collection("events").whereEqualTo("parentId",usuario?.uid).get();
+        return events;
+    }
+
+    private fun obtenerMedicacion(): Task<QuerySnapshot> {
+        val medications = db.collection("medications").whereEqualTo("parentId",usuario?.uid).get();
+        return medications;
+    }
+
+    private fun obtenerEnfermedades(): Task<QuerySnapshot> {
+        val diseases = db.collection("diseases").whereEqualTo("parentId",usuario?.uid).get();
+        return diseases;
     }
 }
