@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var viewModel: CreateLogUserVM
     lateinit var vm: GetEventsVM
     private val db = FirebaseFirestore.getInstance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -35,9 +36,6 @@ class MainActivity : AppCompatActivity() {
         //val login3=findViewById<Button>(R.id.bt_login)
         val sharedPref = this?.getSharedPreferences(
             getString(R.string.preference_file_key), Context.MODE_PRIVATE)
-        Log.i("ALGOO","MENSAJEEEEEEEEEE")
-        Log.i("ALGOO","MENSAJEEEEEEEEEE")
-        Log.i("ALGOO","MENSAJEEEEEEEEEE")
         login.setOnClickListener(){
             /*PERMITIENDO ACCESO DIRECTO TEMPORAL*/
             /*val intent=Intent(this,SelectorActivity::class.java)
@@ -50,6 +48,7 @@ class MainActivity : AppCompatActivity() {
             }*/
            createLogUser()
         }
+
 
         registro.setOnClickListener(){
             // TODO: 1-> REALIZAR REGISTRO DE USUARIO CON FIREBASE
@@ -68,6 +67,7 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+
 
 
     private fun createLogUser(){

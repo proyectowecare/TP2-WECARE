@@ -1,6 +1,8 @@
 package com.example.wecareapp
 
 import android.app.Activity
+import android.app.Activity.RESULT_OK
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,8 +13,12 @@ import androidx.fragment.app.Fragment
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.fitness.Fitness
 import com.google.android.gms.fitness.FitnessOptions
-import com.google.android.gms.fitness.data.*
+import com.google.android.gms.fitness.data.DataPoint
+import com.google.android.gms.fitness.data.DataSet
+import com.google.android.gms.fitness.data.DataType
+import com.google.android.gms.fitness.data.HealthDataTypes
 import com.google.android.gms.fitness.request.DataReadRequest
+import org.w3c.dom.Text
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
@@ -53,7 +59,6 @@ class StatsFragment : Fragment() {
     private fun createAPIClient(heartRateText:TextView, oxygenText:TextView) {
 
         val account = GoogleSignIn.getAccountForExtension(activity as Activity, healthDataOptions)
-
         if (!GoogleSignIn.hasPermissions(account, healthDataOptions)) {
             GoogleSignIn.requestPermissions(
                 this, // your activity
@@ -61,23 +66,14 @@ class StatsFragment : Fragment() {
                 account,
                 healthDataOptions
             )
-            println("            ")
-            println("            ")
-            println("            ")
-            accessGoogleFit(heartRateText, oxygenText)
         } else {
             accessGoogleFit(heartRateText, oxygenText)
-            println("            ")
-            println("            ")
-            println("            ")
+
         }
 
     }
 
     private fun accessGoogleFit(heartRateText:TextView, oxygenText: TextView) {
-        println("            ")
-        println("            ")
-        println("            ")
         val end = LocalDateTime.now()
         val startDate = end.minusDays(7)
         val endSeconds = end.atZone(ZoneId.systemDefault()).toEpochSecond()
@@ -94,27 +90,27 @@ class StatsFragment : Fragment() {
         //OBTENER LA CANTIDAD DE PASOS
         println("            ")
         val readRequest = DataReadRequest.Builder()
-            .aggregate(HealthDataTypes.TYPE_OXYGEN_SATURATION)
-            .aggregate(DataType.TYPE_HEART_RATE_BPM)
+            .aggregate(DataType.TYPE_HEART_RATE_BPM, DataType.AGGREGATE_HEART_RATE_SUMMARY)
             .setTimeRange(startSeconds, endSeconds, TimeUnit.SECONDS)
-            .bucketByTime(5, TimeUnit.MINUTES) //Guarda en grupos de 5 minutos de intervalo
+            .bucketByTime(1, TimeUnit.DAYS) //Guarda en grupos de 5 minutos de intervalo
+            .enableServerQueries()
             .build()
-        println("AQUÍ ESTA FALLANDO ----- The user must be signed in to make this API call.")
+
         Fitness.getHistoryClient(activity as Activity, account)
             .readData(readRequest)
             .addOnSuccessListener { response ->
-                for (dataSet in response.buckets.flatMap { it.dataSets }) {
-                    if(dataSet.dataPoints.size>0){
-                        dumpDataSet(dataSet, heartRateText, oxygenText)
-                    }
+
+                for (dataSet in response.buckets.flatMap{ it.dataSets }) {
+                    Log.i("Dataset","${dataSet}")
+                    dumpDataSet(dataSet, heartRateText, oxygenText)
                 }
                 Log.i("Conexion", "Conectado")
             }
             .addOnFailureListener({ e -> Log.d("PRUEBAS", "OnFailure()", e) })
-        println("            ")
+
     }
     fun dumpDataSet(dataSet: DataSet,  heartRateText:TextView, oxygenText: TextView) {
-       Log.i("Tipo de dato", "Data returned for Data type: ${dataSet.dataType.name}")
+       Log.i("Tipo de dato", "Data returned for Data type: ${dataSet.dataPoints}")
     //    Log.i("DATAPOINT",dataSet.dataPoints.toString())
         for (dp in dataSet.dataPoints) {
            // Log.i("Heart rate","Data point:")
@@ -150,7 +146,6 @@ class StatsFragment : Fragment() {
 
                         heartRateText.text = "${data.getValue(field)} BPM"
                     }
-
                     "oxygen_saturation_average"
                     -> {
                         oxygenText.text = "${data.getValue(field)} %"
