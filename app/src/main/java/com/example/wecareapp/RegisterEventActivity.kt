@@ -1,14 +1,18 @@
 package com.example.wecareapp
 
 import android.content.Context
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.wecareapp.model.*
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.temporal.TemporalField
@@ -17,6 +21,7 @@ import java.util.*
 
 class RegisterEventActivity : AppCompatActivity() {
     //lateinit var viewModel: CreateEventVM
+    var db = FirebaseFirestore.getInstance();
 
     @RequiresApi(Build.VERSION_CODES.O)
 
@@ -55,6 +60,10 @@ class RegisterEventActivity : AppCompatActivity() {
 
         ib_sendevent.setOnClickListener(View.OnClickListener {
             createEvent(this, feelingNum, result,)
+            /*val intent = Intent(this, HomeFragment::class.java).apply {
+
+            }
+            startActivity(intent)*/
         })
 
 /*
@@ -111,8 +120,29 @@ class RegisterEventActivity : AppCompatActivity() {
         var et_reasonevent = findViewById<EditText>(R.id.eT_reasonevent).text.toString()
         var tv_detail_event =
             findViewById<AutoCompleteTextView>(R.id.tv_detail_event).text.toString()
-        val event = Event(et_event, et_reasonevent, feelingNum.toInt(), result, tv_detail_event, "17-04-2022  15:30" ,1)
+        val currentUser = FirebaseAuth.getInstance().currentUser;
+        //val eventAnterior = Event(et_event, et_reasonevent, feelingNum.toInt(), result, tv_detail_event, "17-04-2022  15:30" ,1)
         //viewModel.createNewEvent(event, con)
+
+        //Firebase
+        val events = db.collection("events");
+        val event = hashMapOf(
+            "eventDetail" to tv_detail_event,
+            "eventDescription" to et_reasonevent,
+            "eventName" to et_event,
+            "eventScore" to feelingNum,
+            "eventResult" to result,
+            "patientId" to currentUser?.uid,
+        )
+
+        events.add(event).addOnSuccessListener {
+            //Log.d("Mensaje","Se ha logrado crear el evento")
+            Toast.makeText(this, "Se ha logrado crear el evento", Toast.LENGTH_LONG).show()}
+            .addOnFailureListener {
+                //Log.e("Error","No se ha podido crear el evento")
+                Toast.makeText(this, "No se ha podido crear el evento", Toast.LENGTH_LONG).show() };
+
+        //
 
     }
 

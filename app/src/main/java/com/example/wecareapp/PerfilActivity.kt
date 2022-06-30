@@ -2,7 +2,6 @@ package com.example.wecareapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Button
 import android.widget.EditText
@@ -14,6 +13,8 @@ import com.example.wecareapp.model.Enfermedad
 import com.example.wecareapp.model.Medicacion
 import com.example.wecareapp.recyclerview.EnfermedadesAdapter
 import com.example.wecareapp.recyclerview.MedicacionAdapter
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class PerfilActivity : AppCompatActivity() {
     private lateinit var btnAgregarEnfermedad:Button
@@ -28,6 +29,8 @@ class PerfilActivity : AppCompatActivity() {
     private lateinit var medicaciones:ArrayList<Medicacion>
     private lateinit var mAdapter:MedicacionAdapter
 
+    val db = FirebaseFirestore.getInstance();
+    val usuario = FirebaseAuth.getInstance().currentUser;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_perfil)
@@ -84,6 +87,22 @@ class PerfilActivity : AppCompatActivity() {
         addDialog.setPositiveButton("Ok"){
                 dialog,_->
             val enfermedad = textoEnfermedad.text.toString()
+
+            //Firebase
+            val diseases = db.collection("medications");
+            val disease = hashMapOf(
+                "patientId" to usuario?.uid,
+                "diseaseName" to enfermedad,
+            )
+
+            diseases.add(disease).addOnSuccessListener {
+                //Log.d("Mensaje","Se ha logrado crear el evento")
+                Toast.makeText(this, "Se ha logrado registrar la enfermedad", Toast.LENGTH_LONG).show()}
+                .addOnFailureListener {
+                    //Log.e("Error","No se ha podido crear el evento")
+                    Toast.makeText(this, "No se ha podido registrar la enfermedad", Toast.LENGTH_LONG).show() };
+            //
+
             enfermedades.add(Enfermedad(enfermedad))
             eAdapter.notifyDataSetChanged()
             Toast.makeText(this,"Condición agregada correctamente",Toast.LENGTH_SHORT).show()
@@ -111,6 +130,22 @@ class PerfilActivity : AppCompatActivity() {
         addDialog.setPositiveButton("Ok"){
                 dialog,_->
             val medicacion = textoMedicacion.text.toString()
+
+            //Firebase
+            val medications = db.collection("medications");
+            val medication = hashMapOf(
+                "patientId" to usuario?.uid,
+                "medicationName" to textoMedicacion,
+            )
+
+            medications.add(medication).addOnSuccessListener {
+                //Log.d("Mensaje","Se ha logrado crear el evento")
+                Toast.makeText(this, "Se ha logrado registrar la medicación", Toast.LENGTH_LONG).show()}
+                .addOnFailureListener {
+                    //Log.e("Error","No se ha podido crear el evento")
+                    Toast.makeText(this, "No se ha podido registrar la medicación", Toast.LENGTH_LONG).show() };
+            //
+
             medicaciones.add(Medicacion(medicacion))
             mAdapter.notifyDataSetChanged()
             Toast.makeText(this,"Medicación agregada correctamente",Toast.LENGTH_SHORT).show()
