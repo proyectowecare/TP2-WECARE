@@ -17,6 +17,7 @@ class SpetialistSelectorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
         // Instancia del view binding
         val binding = ActivitySpetialistSelectorBinding.inflate(layoutInflater)
         setContentView(binding.root)
