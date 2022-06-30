@@ -73,9 +73,9 @@ class RegisterActivity2 : AppCompatActivity() {
         val  specialist = Specialist(Firstname.text.toString().replace("       ",""),
             Lastname.text.toString().replace("       ",""),
             Email.text.toString().replace("       ",""),
+            Password.text.toString().replace("       ",""),
             Esp.text.toString().replace("       ",""),
             Nrocol.text.toString().replace("       ",""),
-            Password.text.toString().replace("       ",""),
             ConfirmPassword.text.toString().replace("       ",""))
 
         //viewModel.createNewSpecialist(specialist)

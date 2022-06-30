@@ -87,11 +87,10 @@ class RegisterActivity1 : AppCompatActivity() {
             .createUserWithEmailAndPassword(Email.text.toString(),Password.text.toString())
             .addOnCompleteListener{
                 val mAuth = FirebaseAuth.getInstance()
-
                 if (it.isSuccessful){
                     val uid = mAuth.currentUser?.uid
                     //TODO: ESTA VEZ, EL MAIL SERÁ LA CLAVE PARA LA BASE DE DATOS(NOSQL)
-                    db.collection("patients").document().set(
+                    db.collection("patients").document(uid.toString()).set(
                         hashMapOf(
                             "patientId" to uid,
                             "patientName" to patient.Firstname,

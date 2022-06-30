@@ -61,6 +61,19 @@
             android:paddingBottom="10dp">
 
 
+            <View
+                android:id="@+id/login_box"
+                android:layout_width="343dp"
+                android:layout_height="237dp"
+                android:layout_gravity="center"
+                android:background="@drawable/color"
+
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
 
                 android:id="@+id/iniciar_ses"
@@ -78,26 +91,12 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.005" />
 
-            <View
-                android:id="@+id/login_box"
-                android:layout_width="343dp"
-                android:layout_height="237dp"
-                android:layout_gravity="center"
-                android:background="@drawable/color"
-
-
-
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="78dp"
+                android:layout_width="316dp"
+                android:layout_height="51dp"
                 android:layout_marginStart="77dp"
+                android:layout_marginEnd="78dp"
                 app:layout_constraintBottom_toBottomOf="@+id/login_box"
                 app:layout_constraintEnd_toEndOf="@+id/login_box"
                 app:layout_constraintStart_toStartOf="@+id/login_box"
@@ -107,7 +106,7 @@
                 <AutoCompleteTextView
                     android:id="@+id/autoCompleteTextView"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="51dp"
                     android:layout_weight="1"
                     android:hint="Tipo de usuario"
 
