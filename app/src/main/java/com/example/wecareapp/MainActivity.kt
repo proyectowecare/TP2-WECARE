@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.widget.AutoCompleteTextView
 import android.widget.Button
 import android.widget.EditText
@@ -34,7 +35,9 @@ class MainActivity : AppCompatActivity() {
         //val login3=findViewById<Button>(R.id.bt_login)
         val sharedPref = this?.getSharedPreferences(
             getString(R.string.preference_file_key), Context.MODE_PRIVATE)
-
+        Log.i("ALGOO","MENSAJEEEEEEEEEE")
+        Log.i("ALGOO","MENSAJEEEEEEEEEE")
+        Log.i("ALGOO","MENSAJEEEEEEEEEE")
         login.setOnClickListener(){
             /*PERMITIENDO ACCESO DIRECTO TEMPORAL*/
             /*val intent=Intent(this,SelectorActivity::class.java)

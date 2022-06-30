@@ -3,21 +3,16 @@ package com.example.wecareapp
 import android.app.Activity
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import com.example.wecareapp.api.GoogleFitApiService
+import androidx.fragment.app.Fragment
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.fitness.Fitness
 import com.google.android.gms.fitness.FitnessOptions
-import com.google.android.gms.fitness.data.DataPoint
-import com.google.android.gms.fitness.data.DataSet
-import com.google.android.gms.fitness.data.DataType
-import com.google.android.gms.fitness.data.HealthDataTypes
+import com.google.android.gms.fitness.data.*
 import com.google.android.gms.fitness.request.DataReadRequest
-import org.w3c.dom.Text
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
@@ -34,9 +29,6 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class StatsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
 
     override fun onCreateView(
@@ -61,6 +53,7 @@ class StatsFragment : Fragment() {
     private fun createAPIClient(heartRateText:TextView, oxygenText:TextView) {
 
         val account = GoogleSignIn.getAccountForExtension(activity as Activity, healthDataOptions)
+
         if (!GoogleSignIn.hasPermissions(account, healthDataOptions)) {
             GoogleSignIn.requestPermissions(
                 this, // your activity
@@ -68,27 +61,45 @@ class StatsFragment : Fragment() {
                 account,
                 healthDataOptions
             )
+            println("            ")
+            println("            ")
+            println("            ")
+            accessGoogleFit(heartRateText, oxygenText)
         } else {
             accessGoogleFit(heartRateText, oxygenText)
+            println("            ")
+            println("            ")
+            println("            ")
         }
 
     }
 
     private fun accessGoogleFit(heartRateText:TextView, oxygenText: TextView) {
+        println("            ")
+        println("            ")
+        println("            ")
         val end = LocalDateTime.now()
         val startDate = end.minusDays(7)
         val endSeconds = end.atZone(ZoneId.systemDefault()).toEpochSecond()
         val startSeconds = startDate.atZone(ZoneId.systemDefault()).toEpochSecond()
         val account = GoogleSignIn.getAccountForExtension(activity as Activity, healthDataOptions)
-
+        println("            ")
+        if (!GoogleSignIn.hasPermissions(account, healthDataOptions)) {
+            GoogleSignIn.requestPermissions(
+                this, // your activity
+                1, // e.g. 1
+                account,
+                healthDataOptions
+            )}
         //OBTENER LA CANTIDAD DE PASOS
-
+        println("            ")
         val readRequest = DataReadRequest.Builder()
             .aggregate(HealthDataTypes.TYPE_OXYGEN_SATURATION)
             .aggregate(DataType.TYPE_HEART_RATE_BPM)
             .setTimeRange(startSeconds, endSeconds, TimeUnit.SECONDS)
             .bucketByTime(5, TimeUnit.MINUTES) //Guarda en grupos de 5 minutos de intervalo
             .build()
+        println("AQUÍ ESTA FALLANDO ----- The user must be signed in to make this API call.")
         Fitness.getHistoryClient(activity as Activity, account)
             .readData(readRequest)
             .addOnSuccessListener { response ->
@@ -100,6 +111,7 @@ class StatsFragment : Fragment() {
                 Log.i("Conexion", "Conectado")
             }
             .addOnFailureListener({ e -> Log.d("PRUEBAS", "OnFailure()", e) })
+        println("            ")
     }
     fun dumpDataSet(dataSet: DataSet,  heartRateText:TextView, oxygenText: TextView) {
        Log.i("Tipo de dato", "Data returned for Data type: ${dataSet.dataType.name}")
@@ -128,7 +140,7 @@ class StatsFragment : Fragment() {
         .toLocalDateTime().toString()
 
     fun updateView(data:DataPoint, heartRateText:TextView, oxygenText: TextView){
-       // Log.i("DATA",data.toString())
+        Log.i("DATA",data.toString())
         if(data is DataPoint){
             for (field in data.dataType.fields) {
                 //Log.i("WHEN", "entre con valor: ${field.name}")

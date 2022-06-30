@@ -61,7 +61,7 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     //agregando dependencias para consumir Google Play Services
-    implementation("com.google.android.gms:play-services-fitness:21.0.1")
+    implementation("com.google.android.gms:play-services-fitness:21.1.0")
     implementation("com.google.android.gms:play-services-auth:20.2.0")
 
 
