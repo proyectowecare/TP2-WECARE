@@ -21,10 +21,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarItemView
 
 class SelectorActivity : AppCompatActivity() {
+    lateinit var textView: TextView
+    lateinit var text: String
+    var textView1=""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
         // Instancia del view binding
         val binding = ActivitySelectorBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -37,7 +38,6 @@ class SelectorActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         setupActionBarWithNavController(navController,appBarConfiguration)
-        actionBar?.title="Hogar"
         // Sincronizacion del navController con nuesto bottom navigation
         bottomNavigationView.setupWithNavController(navController)
 
@@ -45,12 +45,18 @@ class SelectorActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_options,menu)
-        // PONER EL NOMBRE DEL USUARIO EN EL TÍTULO
+        // PONER EL NOMBRE DEL USUARIO EN EL TÍTULO -> TODO: AÚN VUELVE A SU ESTADO POR DEFECTO EL CAMPO DEL NOMBRE
         val bundle = intent.extras
         val nomPat = bundle?.getString("namePatient")
-        val textView: TextView = findViewById<TextView>(R.id.textView6)
-
-        textView.text = "Buenos días\n${nomPat}"
+        text=nomPat.toString()
+        println(text)
+        if (!text.isBlank()){
+            textView1 = text
+        }else{
+           println(textView1)
+        }
+        textView= findViewById<TextView>(R.id.textView6)
+        textView.text = "Buenos días\n${textView1}"
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -99,12 +105,5 @@ class SelectorActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    // TODO: ASIGNAR LOS IMAGEBUTTON
-    fun goToMisEmociones(view:View)
-    {
-        val intent = Intent(this,  R.id.feelingFragment2::class.java).apply {
-            //putExtra("Username",user.name)
-        }
-        startActivity(intent)
-    }
+
 }
