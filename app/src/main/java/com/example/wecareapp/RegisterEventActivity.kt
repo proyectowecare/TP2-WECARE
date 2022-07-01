@@ -124,6 +124,7 @@ class RegisterEventActivity : AppCompatActivity() {
         //val eventAnterior = Event(et_event, et_reasonevent, feelingNum.toInt(), result, tv_detail_event, "17-04-2022  15:30" ,1)
         //viewModel.createNewEvent(event, con)
 
+
         //Firebase
         val events = db.collection("events");
         val event = hashMapOf(
