@@ -9,35 +9,35 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.wecareapp.HomeFragment"
-        android:label="fragment_home"
+        android:label="Hogar"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/feelingFragment2"
         android:name="com.example.wecareapp.FeelingFragment"
-        android:label="fragment_feeling2"
+        android:label="Mis Emociones"
         tools:layout="@layout/fragment_feeling2" />
     <fragment
         android:id="@+id/statsFragment"
         android:name="com.example.wecareapp.StatsFragment"
-        android:label="fragment_stats"
+        android:label="Ritmo Cardiaco"
         tools:layout="@layout/fragment_stats" />
 
     <fragment
         android:id="@+id/ButtonBreathActivity"
         android:name="com.example.wecareapp.StadisticsFragment"
-        android:label="fragment_stadistics"
+        android:label="Relajación"
         tools:layout="@layout/activity_button_breath" />
 
     <fragment
         android:id="@+id/MediaPlayerActivity"
         android:name="com.example.wecareapp.StadisticsFragment"
-        android:label="fragment_stadistics"
+        android:label="Música"
         tools:layout="@layout/activity_media_player" />
 
     <fragment
         android:id="@+id/RelaxSelectorActivity"
         android:name="com.example.wecareapp.StadisticsFragment"
-        android:label="fragment_stadistics"
+        android:label="Opciones"
         tools:layout="@layout/activity_relax_selector" />
 
 
