@@ -32,20 +32,9 @@ class MainActivity : AppCompatActivity() {
         initViewModel()
         val registro=findViewById<Button>(R.id.bt_signup)
         val login=findViewById<Button>(R.id.bt_login)
-        //val login2=findViewById<Button>(R.id.bt_login)
-        //val login3=findViewById<Button>(R.id.bt_login)
         val sharedPref = this?.getSharedPreferences(
             getString(R.string.preference_file_key), Context.MODE_PRIVATE)
         login.setOnClickListener(){
-            /*PERMITIENDO ACCESO DIRECTO TEMPORAL*/
-            /*val intent=Intent(this,SelectorActivity::class.java)
-            startActivity(intent)*/
-            /*if(createLogUser(this)){
-                val intent = Intent(this, SelectRolActivity::class.java).apply {
-                    //putExtra("Username",user.name)
-                }
-                startActivity(intent)
-            }*/
            createLogUser()
         }
 

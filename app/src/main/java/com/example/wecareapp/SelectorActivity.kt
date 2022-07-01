@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.AutoCompleteTextView
 import android.widget.ImageButton
 import android.widget.TextView
@@ -36,6 +37,7 @@ class SelectorActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         setupActionBarWithNavController(navController,appBarConfiguration)
+        actionBar?.title="Hogar"
         // Sincronizacion del navController con nuesto bottom navigation
         bottomNavigationView.setupWithNavController(navController)
 
@@ -47,6 +49,7 @@ class SelectorActivity : AppCompatActivity() {
         val bundle = intent.extras
         val nomPat = bundle?.getString("namePatient")
         val textView: TextView = findViewById<TextView>(R.id.textView6)
+
         textView.text = "Buenos días\n${nomPat}"
         return super.onCreateOptionsMenu(menu)
     }
@@ -96,5 +99,12 @@ class SelectorActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-
+    // TODO: ASIGNAR LOS IMAGEBUTTON
+    fun goToMisEmociones(view:View)
+    {
+        val intent = Intent(this,  R.id.feelingFragment2::class.java).apply {
+            //putExtra("Username",user.name)
+        }
+        startActivity(intent)
+    }
 }
